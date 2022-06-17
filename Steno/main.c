@@ -1,12 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "commandList.h"
-int main() {
+#include "utilities.h"
+#include "manageFile.h"
+
+int main(void) {
     int choice = 0;
     Node *l = NULL;
     do {
         help();
         fflush(stdin);
         scanf("%d", &choice);
-        system("clear");
+        system("clear||cls");
         switch (choice) {
             case 1:
                 currentPath();
@@ -24,98 +29,20 @@ int main() {
                 printTXT(inputNameFile(1));
                 PAUSE
             case 6:
-                l = insertByInput(1);
+                insertByInput(1, &l);
                 executeHiding(l);
                 PAUSE
             case 7:
-                l = insertByInput(-1);
+                insertByInput(-1, &l);
                 executeUnveiling(l);
                 PAUSE
             case 0:
-                terminate();
-                PAUSE
+                printf("Thanks");
+                break;
             default:
                 perror("Command not found.\n");
                 PAUSE
         }
     } while (choice != 0);
+    return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-    int choice = 0;
-    do {
-        if(choice != 0)
-            PAUSE
-        help();
-        fflush(stdin);
-        scanf("%d", &choice);
-        system("clear");
-        switch (choice) {
-            case 1:
-                currentPath();
-                PAUSE
-            case 2:
-                showContent();
-                PAUSE
-            case 3:
-                changeDirectory();
-                PAUSE
-            case 4:
-                createTXT(inputNameFile(1));
-                PAUSE
-            case 5:
-                printTXT(inputNameFile(1));
-                PAUSE
-//            case 6:
-//                executeHiding(inputNameFile())
-//                system("pause");
-//                PAUSE
-//            case 7:
-//                system("pause");
-//                PAUSE
-            case 0:
-                terminate();
-                PAUSE
-            default:
-                perror("Command not found.\n");
-                PAUSE
-        }
-    } while (choice != 0);
-*/

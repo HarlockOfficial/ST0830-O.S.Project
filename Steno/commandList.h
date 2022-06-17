@@ -1,13 +1,10 @@
 #ifndef ST0830_O_S_PROJECT_COMMANDLIST_H
 #define ST0830_O_S_PROJECT_COMMANDLIST_H
+#include "list.h"
 
-#include "utilities.h"
-#include <unistd.h>
-#include <dirent.h>
-#include <sys/stat.h>
-#include "stenography.h"
-
+//TODO fix: trovare un luogo migliore, questa definizione non viene usata in header o in commanList.c, secondo me è più una utility
 #define PAUSE getchar();getchar();break;
+
 /**
  * This method explain the command for the line command interface.
  */
@@ -62,6 +59,6 @@ int executeUnveiling(Node *list);
 /**
  * This method terminate the program execution.
  */
-void terminate();
+//void terminate();
 
 #endif //ST0830_O_S_PROJECT_COMMANDLIST_H

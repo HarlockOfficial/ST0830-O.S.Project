@@ -1,20 +1,24 @@
+#include <string.h>
+#include <stdio.h>
 #include "list.h"
-Node *insert(Node *first_element, char name_file_txt[], char name_file_bmp[]) {
-    if (first_element == NULL) {
-        first_element = (Node *) malloc(sizeof(Node));
-        strcpy(first_element->name_file_txt, name_file_txt);
-        strcpy(first_element->name_file_bmp, name_file_bmp);
-        return first_element;
-    } else {
-        Node *tmp = first_element;
+
+void create_node(Node **node, char name_file_txt[], char name_file_bmp[]);
+//TODO test: il fix dovrebbe andare, però non ne sono certo
+void insert(Node **first_element, char name_file_txt[], char name_file_bmp[]) {
+    Node *tmp = *first_element;
+    if (tmp != NULL) {
         while (tmp->next != NULL)
             tmp = tmp->next;
-
-        tmp->next = (Node *) malloc(sizeof(Node));
-        strcpy(tmp->next->name_file_txt, name_file_txt);
-        strcpy(tmp->next->name_file_bmp, name_file_bmp);
-        return first_element;
     }
+    create_node(&tmp, name_file_txt, name_file_bmp);
+    if(*first_element == NULL)
+        *first_element = tmp;
+}
+
+void create_node(Node **node, char name_file_txt[], char name_file_bmp[]){
+    *node = (Node *) malloc(sizeof(Node));
+    strcpy((*node)->name_file_txt, name_file_txt);
+    strcpy((*node)->name_file_bmp, name_file_bmp);
 }
 
 char *getNameFileTxt(Node *first_element) {

@@ -3,12 +3,20 @@ project(ST0830_O_S_Project C)
 
 set(CMAKE_C_STANDARD 11)
 
-include_directories(Steno)
-
-add_executable(ST0830_O_S_Project
-            Steno/byteType.h
-            Steno/main.c
-            Steno/utilities.c Steno/utilities.h
-            Steno/commandList.h Steno/commandList.c
-            Steno/stenography.c Steno/stenography.h
-            Steno/list.c Steno/list.h Steno/manageFile.c Steno/manageFile.h)
+add_executable(ST0830_O_S_Project "")
+target_sources(ST0830_O_S_Project
+                PRIVATE
+                    Steno/main.c
+                    Steno/utilities.c
+                    Steno/commandList.c
+                    Steno/stenography.c
+                    Steno/list.c
+                    Steno/manageFile.c
+                PUBLIC
+                    Steno/byteType.h
+                    Steno/utilities.h
+                    Steno/commandList.h
+                    Steno/stenography.h
+                    Steno/list.h
+                    Steno/manageFile.h
+                )

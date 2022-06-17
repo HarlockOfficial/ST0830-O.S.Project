@@ -1,9 +1,8 @@
 #ifndef OSPROJECT_UTILITIES_H
 #define OSPROJECT_UTILITIES_H
-
-#include "byteType.h"
-
-#define MAX_PATH 200
+#include <stdio.h>
+#include "constants.h"
+#include "list.h"
 
 /**
  * This method get the length of file.
@@ -55,10 +54,9 @@ char *inputNameFile(int state);
 
 /**
  * This method bring in input the element of List
- * @return
- *                  firstElement of list.
+ * @param l in/out param used to pass and retrieve the list's head node
  */
-Node * insertByInput();
+void insertByInput(int isHiding, Node** l);
 
 //    /**
 //    * This method split a string.

@@ -2,7 +2,8 @@
 #define ST0830_O_S_PROJECT_LIST_H
 
 #include "byteType.h"
-#include "stdlib.h"
+#include "constants.h"
+#include <stdlib.h>
 
 struct Node{
     char name_file_txt[MAX_LENGTH_STRING];
@@ -10,18 +11,19 @@ struct Node{
     struct Node *next;
 } typedef Node;
 
+//Todo fix: in effetti la vostra implementazione torna l'ultimo elemento della lista, non il primo,
+// dovrei aver risolto il problema, ma va testato
 /**
 * This method put an element string on list.
 * @param first_element
 *                  first element of the list.
+ *       NOTE: in/out param, this var will contain the first element of the list at the end of the function call
 * @param string
 *                  name_file_txt.
 * @param string
 *                  name_file_bmp.
-* @return
-*                  firstElement of list.
 */
-Node* insert(Node* first_element, char name_file_txt[], char name_file_bmp[]);
+void insert(Node** first_element, char name_file_txt[], char name_file_bmp[]);
 
 /**
 * This method remove an element on list.

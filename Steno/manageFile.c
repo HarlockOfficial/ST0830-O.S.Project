@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include "byteType.h"
+#include "utilities.h"
 #include "manageFile.h"
 
 long getFileLength(FILE *f) {

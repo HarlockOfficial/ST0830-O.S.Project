@@ -1,3 +1,5 @@
+#include "byteType.h"
+#include "utilities.h"
 #include "stenography.h"
 
 int hiding(FILE* file_img, FILE* file_txt, FILE* file_img_output){
